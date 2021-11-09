@@ -28,9 +28,9 @@ public class GamePanel extends JPanel implements Serializable {
     private JLabel highScoreLabel;
     private int score;
     private int highScore;
-    private Rectangle player; //the player box which the user controls
+    private Player player; //the player box which the user controls
     private boolean isGameOver;
-    private Color playerColour = new Color(57, 52, 88);
+
 
     public GamePanel() {
 
@@ -72,7 +72,7 @@ public class GamePanel extends JPanel implements Serializable {
         highScoreLabel.setText("  HighScore: " + highScore);
         jumping = false;
         jumpTimer = new Timer(16, new JumpActionListener());
-        player = new Rectangle(35, 60);
+        player = new Player(35, 60);
         player.setLocation(50, GROUND - 80 - jumpHeight);
         isGameOver = false;
         obstacles = new ObstacleList();
@@ -89,7 +89,6 @@ public class GamePanel extends JPanel implements Serializable {
         img.paintIcon(this, g, 0, 0);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(playerColour);
         g2.drawRect(50, GROUND - 35 - jumpHeight, 35, 35);
         g2.fillRect(50, GROUND - 35 - jumpHeight, 35, 35);
         player.setLocation(50, GROUND - 80 - jumpHeight);
@@ -121,7 +120,7 @@ public class GamePanel extends JPanel implements Serializable {
                 obstacles.add(new Obstacle(780, GROUND - 20));
                 randomGap = (int) (Math.random() * (MAX_SPACE - SMALL_SPACE)) + SMALL_SPACE;
 
-                score++; //score automatically goes up every second
+                score++;
                 scoreLabel.setText("Score: " + score);
             }
 
@@ -141,14 +140,14 @@ public class GamePanel extends JPanel implements Serializable {
             if (isGameOver) {
 
 
-                obstacleTimer.stop(); //stop timers
+                obstacleTimer.stop();
                 jumpTimer.stop();
 
 
                 if (score > highScore) {
                     highScore = score;
                     JOptionPane.showMessageDialog(null, "New Highscore!");
-                    //FileWriter writes the highscore to a text file
+
                     File f = new File("highscores.txt");
                     try {
                         FileWriter fw = new FileWriter(f);
@@ -175,7 +174,7 @@ public class GamePanel extends JPanel implements Serializable {
 
         public void mouseClicked(MouseEvent e) {
 
-            jumpTimer.setDelay(3);
+            jumpTimer.setDelay(2);
             jumpTimer.start();
 
 
@@ -214,7 +213,7 @@ public class GamePanel extends JPanel implements Serializable {
 
         public void keyPressed(KeyEvent e) {
             if (e.getExtendedKeyCode() == e.VK_SPACE) {
-                jumpTimer.setDelay(3);
+                jumpTimer.setDelay(2);
                 jumpTimer.start();
             }
 

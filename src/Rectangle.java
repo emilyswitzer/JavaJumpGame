@@ -16,6 +16,7 @@ public class Rectangle{
 
     }
 
+
     // methods
     public int getX(){
         return this.x;
