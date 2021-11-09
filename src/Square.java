@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Square extends Rectangle {
 
 
@@ -12,4 +14,18 @@ public class Square extends Rectangle {
     }
 
 
+    @Override
+    public int defense() {
+        return 0;
+    }
+
+    @Override
+    public int jump() {
+        return 0;
+    }
+
+    @Override
+    public Color colour() {
+        return null;
+    }
 }

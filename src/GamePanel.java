@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Serializable {
     private JLabel highScoreLabel;
     private int score;
     private int highScore;
-    private Player player; //the player box which the user controls
+    private Rectangle player; //the player box which the user controls
     private boolean isGameOver;
 
 
@@ -72,7 +72,10 @@ public class GamePanel extends JPanel implements Serializable {
         highScoreLabel.setText("  HighScore: " + highScore);
         jumping = false;
         jumpTimer = new Timer(5, new JumpActionListener());
+
         player = new Player(35, 60);
+        player = new Pink(35,60);
+
 
         player.setLocation(50, GROUND - 80 - jumpHeight);
         isGameOver = false;
@@ -89,7 +92,7 @@ public class GamePanel extends JPanel implements Serializable {
         ImageIcon img = new ImageIcon("images/backgroundimage.jpg");
         img.paintIcon(this, g, 0, 0);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(player.PLAYER_COLOUR);
+        g2.setColor(player.colour());
         g2.drawRect(50, GROUND - 35 - jumpHeight, 35, 35);
         g2.fillRect(50, GROUND - 35 - jumpHeight, 35, 35);
         player.setLocation(50, GROUND - 80 - jumpHeight);

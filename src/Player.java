@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Player extends Rectangle {
 
-    public final Color PLAYER_COLOUR = new Color(245, 66, 218);
+    public Color playerColour;
     public Player(int width, int height) {
         super(width, height);
     }
@@ -13,6 +13,10 @@ public class Player extends Rectangle {
 
     public int jump() {
         return 0;
+    }
+
+    public Color colour() {
+        return playerColour;
     }
 
 }

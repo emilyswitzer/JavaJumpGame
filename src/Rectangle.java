@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public abstract class Rectangle{
 
     private int width;
@@ -53,5 +55,6 @@ public abstract class Rectangle{
 
     public abstract int defense();
     public abstract int jump();
+    public abstract Color colour();
 
 }
