@@ -5,10 +5,8 @@ import java.util.Iterator;
 public class Player extends Rectangle {
 
     private Color playerColour = new Color(57, 52, 88);
-    public int width;
-    public int height;
-    public Player(int height, int width) {
-        super(height, width);
+    public Player(int width, int height) {
+        super(width, height);
     }
 
     public void paintComponent(Graphics g) {
