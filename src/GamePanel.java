@@ -17,8 +17,8 @@ public class GamePanel extends JPanel implements Serializable {
 
 
     public static final int GROUND = 250;
-    public static final int SMALL_SPACE = 175;
-    public static final int MAX_SPACE = 350;
+    public static final int SMALL_SPACE = 150;
+    public static final int MAX_SPACE = 300;
     private ObstacleList obstacles; //an arraylist of obstacles
     private Timer obstacleTimer, jumpTimer; //String Timers
     private static int randomGap = (int) (Math.random() * (MAX_SPACE - SMALL_SPACE)) + SMALL_SPACE;
@@ -71,13 +71,14 @@ public class GamePanel extends JPanel implements Serializable {
         scoreLabel.setText("Score: " + score);
         highScoreLabel.setText("  HighScore: " + highScore);
         jumping = false;
-        jumpTimer = new Timer(16, new JumpActionListener());
+        jumpTimer = new Timer(5, new JumpActionListener());
         player = new Player(35, 60);
+
         player.setLocation(50, GROUND - 80 - jumpHeight);
         isGameOver = false;
         obstacles = new ObstacleList();
         obstacles.add(new Obstacle(780, GROUND - 20));
-        obstacleTimer = new Timer(2, new ObstacleTimerActionListener());
+        obstacleTimer = new Timer(5, new ObstacleTimerActionListener());
         obstacleTimer.start();
 
     }
@@ -88,7 +89,7 @@ public class GamePanel extends JPanel implements Serializable {
         ImageIcon img = new ImageIcon("images/backgroundimage.jpg");
         img.paintIcon(this, g, 0, 0);
         Graphics2D g2 = (Graphics2D) g;
-
+        g2.setColor(player.PLAYER_COLOUR);
         g2.drawRect(50, GROUND - 35 - jumpHeight, 35, 35);
         g2.fillRect(50, GROUND - 35 - jumpHeight, 35, 35);
         player.setLocation(50, GROUND - 80 - jumpHeight);

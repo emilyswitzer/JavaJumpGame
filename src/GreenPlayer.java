@@ -1,9 +1,9 @@
 import java.awt.*;
 
-public class Player extends Rectangle {
+public class GreenPlayer extends Rectangle {
 
-    public final Color PLAYER_COLOUR = new Color(245, 66, 218);
-    public Player(int width, int height) {
+    public final Color PLAYER_COLOUR = new Color(40, 252, 3);
+    public GreenPlayer(int width, int height) {
         super(width, height);
     }
 

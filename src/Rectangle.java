@@ -1,4 +1,4 @@
-public class Rectangle{
+public abstract class Rectangle{
 
     private int width;
     private int height;
@@ -15,19 +15,13 @@ public class Rectangle{
         moving = false;
 
     }
-
-
-    // methods
     public int getX(){
         return this.x;
     }
     public int getY(){
         return this.y;
     }
-    public double getArea() {
 
-        return area;
-    }
 
 
     public boolean getMovingObstacle() {
@@ -57,6 +51,7 @@ public class Rectangle{
         return false;    }
 
 
-
+    public abstract int defense();
+    public abstract int jump();
 
 }
