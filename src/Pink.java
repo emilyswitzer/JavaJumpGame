@@ -1,23 +1,20 @@
 import java.awt.*;
-import java.util.Random;
 
-public class Pink extends AppearanceDecorator {
+public class Pink extends AccessoryDecorator {
 
-
-
-    public Pink(int width, int height) {
-        super(width, height);
+    private Rectangle r;
+    public Pink(Rectangle r) {
+        super();
+        this.r=r;
     }
 
-    public Color colour() {
-        return Color.PINK;
+    public Color addColour() {
+        return Color.MAGENTA;
+
     }
 
-    public int defense() {
-        return 0;
+    public int addAccessory() {
+        return 50;
     }
 
-    public int jump() {
-        return 0;
-    }
 }
