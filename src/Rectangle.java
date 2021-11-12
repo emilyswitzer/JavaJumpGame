@@ -1,21 +1,32 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class Rectangle{
 
-    private int width;
-    private int height;
+    private int width=35;
+    private int height=65;
     private int x;
     private int y;
-    private int area;
     private boolean moving;
 
-
-    public Rectangle(int width, int height) {
+    public Rectangle() {
 
         this.width = width;
         this.height = height;
-        moving = false;
 
+    }
+
+    public int getWidth(){
+        return this.width;
+    }
+    public int getHeight(){
+        return this.height;
+    }
+    public void setWidth(){
+        this.width=width;
+    }
+    public void setHeight(){
+        this.height=height;
     }
     public int getX(){
         return this.x;
@@ -24,16 +35,12 @@ public abstract class Rectangle{
         return this.y;
     }
 
-
-
     public boolean getMovingObstacle() {
-
         return moving;
     }
 
 
     public void setMovingObstacle(boolean moving) {
-
         this.moving = moving;
     }
 
@@ -44,17 +51,11 @@ public abstract class Rectangle{
 
 
     public boolean contains(int x, int y) {
-
-
         if (x >= this.x && x <= this.x + width && y >= this.y && y <= this.y + height)
             return true;
-
-
         return false;    }
 
-
-    public abstract int defense();
-    public abstract int jump();
-    public abstract Color colour();
+    public abstract int addAccessory();
+    public abstract Color addColour();
 
 }

@@ -1,3 +1,5 @@
+import org.w3c.dom.css.RGBColor;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,9 +14,7 @@ import javax.swing.*;
 
 
 
-public class GamePanel extends JPanel implements Serializable {
-
-
+public class GamePanel extends JPanel {
 
     public static final int GROUND = 250;
     public static final int SMALL_SPACE = 150;
@@ -28,7 +28,10 @@ public class GamePanel extends JPanel implements Serializable {
     private JLabel highScoreLabel;
     private int score;
     private int highScore;
-    private Rectangle player; //the player box which the user controls
+    private int borderWidth;
+    int borderControl = -1;
+    private Rectangle player = new Player(); //the player box which the user controls
+    private int jumpHeight2 = player.addAccessory();
     private boolean isGameOver;
 
 
@@ -73,8 +76,8 @@ public class GamePanel extends JPanel implements Serializable {
         jumping = false;
         jumpTimer = new Timer(5, new JumpActionListener());
 
-        player = new Player(35, 60);
-        player = new Pink(35,60);
+
+       player = new SuperSuperJump(new Pink(new Player()));
 
 
         player.setLocation(50, GROUND - 80 - jumpHeight);
@@ -92,9 +95,15 @@ public class GamePanel extends JPanel implements Serializable {
         ImageIcon img = new ImageIcon("images/backgroundimage.jpg");
         img.paintIcon(this, g, 0, 0);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(player.colour());
+        g2.setColor(player.addColour());
+        g2.drawRect(47, GROUND - 38 - jumpHeight, 42, 42);
+        g2.fillRect(47, GROUND - 38 - jumpHeight, 42, 42);
+        g2.setColor(new Color(225, 157, 252));
         g2.drawRect(50, GROUND - 35 - jumpHeight, 35, 35);
         g2.fillRect(50, GROUND - 35 - jumpHeight, 35, 35);
+
+
+
         player.setLocation(50, GROUND - 80 - jumpHeight);
 
         Iterator i = obstacles.iterator();
@@ -105,7 +114,12 @@ public class GamePanel extends JPanel implements Serializable {
         }
 
 
+
     }
+
+
+
+
     public class ObstacleTimerActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
@@ -190,8 +204,7 @@ public class GamePanel extends JPanel implements Serializable {
 
         public void actionPerformed(ActionEvent e) {
 
-
-            if (jumpHeight == 50) {
+            if (jumpHeight == player.addAccessory()) {
                 jumping = true;
             }
 

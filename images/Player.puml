@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Rectangle {
+    -width: int
+    -height: int
+    -x: int
+    -y: int
+    -area: int
+    -moving: boolean
+
+    +int getX()
+    +int getY()
+    +boolean getMovingObstacle()
+    +void setMovingObstacle(moving: boolean)
+    +void setLocation(x:int, y:int)
+    +boolean contains()
+
+}
+class BluePlayer {
+
+
+}
+class Player{
+
+}
+
+class GreenPlayer {
+
+}
+
+Rectangle <|-- BluePlayer
+Rectangle <|-- Player
+Rectangle <|-- GreenPlayer
+
+
+
+
+@enduml

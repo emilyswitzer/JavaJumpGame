@@ -2,21 +2,19 @@ import java.awt.*;
 
 public class Player extends Rectangle {
 
-    public Color playerColour;
-    public Player(int width, int height) {
-        super(width, height);
+    public Player() {
+        super();
+
     }
 
-    public int defense() {
-        return 0;
+    public int addAccessory() {
+        return 50;
     }
 
-    public int jump() {
-        return 0;
+    public Color addColour() {
+        return null;
     }
 
-    public Color colour() {
-        return playerColour;
-    }
+
 
 }

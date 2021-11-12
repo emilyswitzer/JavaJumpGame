@@ -2,30 +2,19 @@ import java.awt.*;
 
 public class Square extends Rectangle {
 
-
-    public int side;
-
+    public int side=45;
     public Square(int side) {
 
-        super(side, side);
-        this.side = side;
-
+        super();
+        this.side=side;
 
     }
 
-
-    @Override
-    public int defense() {
+    public int addAccessory() {
         return 0;
     }
+    public Color addColour() { return null;
 
-    @Override
-    public int jump() {
-        return 0;
     }
 
-    @Override
-    public Color colour() {
-        return null;
-    }
 }

@@ -1,24 +1,21 @@
 import java.awt.*;
-import java.util.Random;
 
-public class Blue extends AppearanceDecorator {
+public class Blue extends AccessoryDecorator {
 
-
-
-    public Blue(int width, int height) {
-        super(width, height);
+    private Rectangle r;
+    private Color[] c;
+    public Blue(Rectangle r) {
+        super();
+        this.r=r;
     }
 
-    public Color colour() {
+    public Color addColour() {
         return Color.BLUE;
+
     }
 
-    public int defense() {
-        return 0;
-    }
-
-    public int jump() {
-        return 0;
+    public int addAccessory() {
+        return 50;
     }
 }
 

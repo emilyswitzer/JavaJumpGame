@@ -1,24 +1,21 @@
 import java.awt.*;
-import java.util.Random;
 
-public class Green extends AppearanceDecorator {
+public class Green extends AccessoryDecorator {
 
+    private Rectangle r;
 
-
-    public Green(int width, int height) {
-        super(width, height);
+    public Green(Rectangle r) {
+        super();
+        this.r=r;
     }
-
-    public Color colour() {
+    public Color addColour() {
         return Color.GREEN;
+
     }
 
-    public int defense() {
-        return 0;
-    }
 
-    public int jump() {
-        return 0;
+    public int addAccessory() {
+        return 50;
     }
 }
 
