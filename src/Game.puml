@@ -1,0 +1,48 @@
+@startuml
+
+abstract class Rectangle
+abstract class AccessoryDecorator
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class Blue {
+
+}
+
+class GamePanel {
+
+}
+
+class JumpGame {
+
+}
+
+class Obstacle {
+
+}
+
+class ObstacleList {
+
+}
+
+class Pink {
+
+}
+class Player {
+
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml

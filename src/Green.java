@@ -17,5 +17,10 @@ public class Green extends AccessoryDecorator {
     public int addAccessory() {
         return 50;
     }
+
+    @Override
+    public void draw(Graphics g) {
+
+    }
 }
 

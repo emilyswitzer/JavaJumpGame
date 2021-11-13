@@ -1,12 +1,14 @@
 import java.awt.*;
 
 
-public class Obstacle extends Square  {
+public class Obstacle extends Square implements Shape  {
 
     private int R;
     private int G;
     private int B;
-    Rectangle r;
+    private boolean moving;
+
+
 
     public Obstacle(int x, int y) {
 

@@ -2,8 +2,8 @@
 'https://plantuml.com/class-diagram
 
 abstract class Rectangle {
-    -width: int
-    -height: int
+    -WIDTH: int
+    -HEIGHT: int
     -x: int
     -y: int
     -area: int
@@ -15,23 +15,23 @@ abstract class Rectangle {
     +void setMovingObstacle(moving: boolean)
     +void setLocation(x:int, y:int)
     +boolean contains()
+    +Color {abstract} addColour()
+    +int {abstract} addAccessory()
 
 }
-class BluePlayer {
-
-
-}
-class Player{
+class Square {
 
 }
 
-class GreenPlayer {
+
+class Player {
 
 }
 
-Rectangle <|-- BluePlayer
+
+Rectangle <|-- Square
+Square <|-- Obstacle
 Rectangle <|-- Player
-Rectangle <|-- GreenPlayer
 
 
 
