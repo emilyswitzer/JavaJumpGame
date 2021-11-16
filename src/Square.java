@@ -1,8 +1,12 @@
 import java.awt.*;
 
-public class Square extends Rectangle {
+public class Square implements Shape {
 
-    public int side=45;
+    public int side;
+    private boolean moving;
+    private int x;
+    private int y;
+
     public Square(int side) {
 
         super();
@@ -10,11 +14,27 @@ public class Square extends Rectangle {
 
     }
 
-    public int addAccessory() {
-        return 0;
+    public int getX(){
+        return this.x;
     }
-    public Color addColour() { return null;
-
+    public int getY(){
+        return this.y;
     }
 
+    public boolean getMovingObstacle() {
+        return moving;
+    }
+
+    public void setMovingObstacle(boolean moving) {
+        this.moving = moving;
+    }
+
+    public void setLocation(int x, int y) {
+        this.x=x;
+        this.y=y;
+    }
+
+    public void draw(Graphics2D g) {
+        g.fillRect(getX(), getY(), side, side);
+    }
 }

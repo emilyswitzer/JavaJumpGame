@@ -28,10 +28,7 @@ public class GamePanel extends JPanel {
     private JLabel highScoreLabel;
     private int score;
     private int highScore;
-    private int borderWidth;
-    int borderControl = -1;
-    private Rectangle player = new Player(); //the player box which the user controls
-    private int jumpHeight2 = player.addAccessory();
+    private Rectangle player = new Player();
     private boolean isGameOver;
 
 

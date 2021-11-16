@@ -17,5 +17,7 @@ public class Green extends AccessoryDecorator {
     public int addAccessory() {
         return 50;
     }
+
+
 }
 

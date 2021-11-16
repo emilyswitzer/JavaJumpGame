@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Player extends Rectangle {
+public class Player extends Rectangle implements Shape{
 
     public Player() {
         super();
@@ -14,7 +14,6 @@ public class Player extends Rectangle {
     public Color addColour() {
         return null;
     }
-
 
 
 }
