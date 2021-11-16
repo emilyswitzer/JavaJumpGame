@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Pink extends AccessoryDecorator implements Shape {
+public class Pink extends AccessoryDecorator {
 
     private Rectangle r;
     public Pink(Rectangle r) {
@@ -17,8 +17,5 @@ public class Pink extends AccessoryDecorator implements Shape {
         return 50;
     }
 
-    @Override
-    public void draw(Graphics g) {
 
-    }
 }

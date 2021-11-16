@@ -4,6 +4,8 @@ public class Square implements Shape {
 
     public int side;
     private boolean moving;
+    private int x;
+    private int y;
 
     public Square(int side) {
 
@@ -11,8 +13,6 @@ public class Square implements Shape {
         this.side=side;
 
     }
-    private int x;
-    private int y;
 
     public int getX(){
         return this.x;
@@ -21,12 +21,6 @@ public class Square implements Shape {
         return this.y;
     }
 
-    public int addAccessory() {
-        return 0;
-    }
-    public Color addColour() { return null;
-
-    }
     public boolean getMovingObstacle() {
         return moving;
     }
@@ -35,14 +29,12 @@ public class Square implements Shape {
         this.moving = moving;
     }
 
-    @Override
     public void setLocation(int x, int y) {
         this.x=x;
         this.y=y;
     }
 
-    @Override
-    public void draw(Graphics g) {
-
+    public void draw(Graphics2D g) {
+        g.fillRect(getX(), getY(), side, side);
     }
 }

@@ -18,9 +18,6 @@ public class Green extends AccessoryDecorator {
         return 50;
     }
 
-    @Override
-    public void draw(Graphics g) {
 
-    }
 }
 

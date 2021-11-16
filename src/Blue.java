@@ -3,7 +3,7 @@ import java.awt.*;
 public class Blue extends AccessoryDecorator {
 
     private Rectangle r;
-    private Color[] c;
+
     public Blue(Rectangle r) {
         super();
         this.r=r;
@@ -18,9 +18,5 @@ public class Blue extends AccessoryDecorator {
         return 50;
     }
 
-    @Override
-    public void draw(Graphics g) {
-
-    }
 }
 

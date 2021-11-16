@@ -6,7 +6,6 @@ public class Obstacle extends Square implements Shape  {
     private int R;
     private int G;
     private int B;
-    private boolean moving;
 
 
 

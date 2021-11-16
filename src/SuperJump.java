@@ -17,8 +17,5 @@ public class SuperJump extends AccessoryDecorator {
         return 65;
     }
 
-    @Override
-    public void draw(Graphics g) {
 
-    }
 }

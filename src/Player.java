@@ -16,8 +16,4 @@ public class Player extends Rectangle implements Shape{
     }
 
 
-    @Override
-    public void draw(Graphics g) {
-
-    }
 }

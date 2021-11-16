@@ -4,6 +4,6 @@ public interface Shape {
 
 
         void setLocation(int x, int y);
-        void draw(Graphics g);
+        void draw(Graphics2D g);
 
 }
