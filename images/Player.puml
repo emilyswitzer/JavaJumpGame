@@ -1,11 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
- interface Shape {
 
-  void setLocation(x: int, y: int)
-  void draw(g: Graphics2D )
-
- }
 
 
 
@@ -14,31 +9,27 @@ abstract class Rectangle {
     -HEIGHT: int
     -x: int
     -y: int
+    -area: int
+    -moving: boolean
 
     +int getX()
     +int getY()
     +boolean contains()
+    +boolean getMovingObstacle()
+    +void setMovingObstacle(moving: boolean)
+    +void setLocation(int: x; int: y)
+    +void draw(g: Graphics2D)
     +Color {abstract} addColour()
     +int {abstract} addAccessory()
 
 }
 class Square {
     +side: int
-    -moving: boolean
-    -x: int
-    -y: int
-
-    + int getX()
-    + int getY()
-    + boolean getMovingObstacle()
-    +void setMovingObstacle(moving: boolean)
 
 }
 
 class Player {
 
-    +int addAccessory()
-    +Color addColour()
 
 }
 
@@ -46,10 +37,12 @@ class Obstacle {
    -R: int
    -G: int
    -B: int
+
+   +void draw(g: Graphics2D)
 }
 
-Shape <|-- Rectangle
-Shape <|-- Square
+
+Rectangle <|-- Square
 Square <|-- Obstacle
 Rectangle <|-- Player
 

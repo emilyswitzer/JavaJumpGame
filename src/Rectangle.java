@@ -14,7 +14,6 @@ public abstract class Rectangle implements Shape{
         return this.y;
     }
 
-
     public void setLocation(int x, int y){
         this.x=x;
         this.y=y;
@@ -26,9 +25,6 @@ public abstract class Rectangle implements Shape{
 
     public abstract int addAccessory();
     public abstract Color addColour();
-
-
-
     public void draw(Graphics2D g) {
         g.fillRect(getX(), getY(), WIDTH, HEIGHT);
     }

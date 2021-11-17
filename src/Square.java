@@ -24,7 +24,6 @@ public class Square implements Shape {
     public boolean getMovingObstacle() {
         return moving;
     }
-
     public void setMovingObstacle(boolean moving) {
         this.moving = moving;
     }

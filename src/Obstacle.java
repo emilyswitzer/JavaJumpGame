@@ -7,8 +7,6 @@ public class Obstacle extends Square implements Shape  {
     private int G;
     private int B;
 
-
-
     public Obstacle(int x, int y) {
 
         super(20);
