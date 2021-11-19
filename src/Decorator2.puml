@@ -1,15 +1,14 @@
 @startuml
 skinparam classAttributeIconSize 0
 abstract class Ticket{
--ticketCode:int
--Double price
+-ticketCode: int
+-price: Double
 
 +Ticket(ticketCode: int)
-+Double getPrice() :Double
++getPrice() :Double
 +{abstract} ticketDesc():String
 
 }
-
 class TrainTicket{
 +{abstract} ticketDesc():String
 }

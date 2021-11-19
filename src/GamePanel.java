@@ -74,7 +74,7 @@ public class GamePanel extends JPanel {
         jumpTimer = new Timer(5, new JumpActionListener());
 
 
-       player = new SuperSuperJump(new Pink(new Player()));
+       player = new Player();
 
 
         player.setLocation(50, GROUND - 80 - jumpHeight);

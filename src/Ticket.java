@@ -7,10 +7,10 @@ public abstract class Ticket {
 
     }
 
-    public abstract Double getPrice();
-    public String ticketDesc(){
-        return "Ticket Code: " + this.ticketCode + ", Price: " + this.getPrice();
-    }
+    public Double getPrice(){
+        return getPrice();
+    };
+    public abstract String ticketDesc();
 
 }
 
