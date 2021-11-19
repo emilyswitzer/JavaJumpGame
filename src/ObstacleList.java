@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class ObstacleList implements Iterable {
 
-    // properties
+
     private ArrayList<Obstacle> obstacles;
 
 
