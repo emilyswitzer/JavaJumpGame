@@ -1,0 +1,138 @@
+@startuml
+skinparam classAttributeIconSize 0
+abstract class Ticket{
+-ticketCode:int
+-Double price
+
++Ticket(ticketCode: int)
++Double getPrice() :Double
++{abstract} ticketDesc():String
+
+}
+
+class StudentBusTicket{
++{abstract} ticketDesc():String
+}
+
+class AdultBusTicket{
++{abstract} ticketDesc():String
+}
+
+class OAPBusTicket{
++{abstract} ticketDesc():String
+}
+
+class KidBusTicket{
++{abstract} ticketDesc():String
+}
+
+class StudentTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class AdultTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class OAPTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class KidTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class StudentPlaneTicket{
++{abstract} ticketDesc():String
+}
+
+class AdultPlaneTicket{
++{abstract} ticketDesc():String
+}
+
+class OAPPlaneTicket{
++{abstract} ticketDesc():String
+}
+
+class KidPlaneTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyStudentBusTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyAdultBusTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyOAPBusTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyKidBusTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyStudentTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyAdultTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyOAPTrainTicket{
++{abstract} ticketDesc():String
+}
+
+class MonthlyKidTrainTicket{
++{abstract} ticketDesc():String
+}
+
+
+class Customer{
+-name:String
+-email:String
+-mobileNum:String
++Customer(name: String)
+}
+
+class Booking{
+-transactionID:String
+-customer:Customer
+-totalPrice:Double
++Booking()
+}
+
+Booking -- Ticket : has a
+Booking -- Customer : creates a
+
+OAPBusTicket --|> Ticket
+Ticket <|--- OAPPlaneTicket
+Ticket <|-- OAPTrainTicket
+MonthlyOAPBusTicket --|> Ticket
+AdultPlaneTicket ---|> Ticket
+Ticket <|--- MonthlyOAPTrainTicket
+KidBusTicket --|> Ticket
+Ticket <|--- KidPlaneTicket
+Ticket <|--- KidTrainTicket
+Ticket <|--- MonthlyKidBusTicket
+Ticket <|--- MonthlyKidTrainTicket
+Ticket <|- StudentBusTicket
+Ticket <|- StudentPlaneTicket
+Ticket <|- StudentTrainTicket
+Ticket <|--- MonthlyStudentBusTicket
+Ticket <|--- MonthlyStudentTrainTicket
+AdultBusTicket --|> Ticket
+Ticket <|--- AdultTrainTicket
+Ticket <|--- MonthlyAdultBusTicket
+Ticket <|-- MonthlyAdultTrainTicket
+
+
+
+
+
+
+
+@enduml
