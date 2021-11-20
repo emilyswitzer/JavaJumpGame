@@ -10,6 +10,7 @@ public class SingleTicket extends TicketDecorator{
     }
 
     public Double getPrice() {
-        return 7.00 + ticket.getPrice();
+        return ticket.getPrice();
+
     }
 }

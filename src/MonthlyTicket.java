@@ -6,7 +6,7 @@ public class MonthlyTicket extends TicketDecorator{
     }
 
     public String ticketDesc() {
-        return ticket.ticketDesc() + ", MonthlyYearly";
+        return ticket.ticketDesc() + ", Monthly";
     }
 
     public Double getPrice() {

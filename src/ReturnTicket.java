@@ -10,6 +10,8 @@ public class ReturnTicket extends TicketDecorator{
     }
 
     public Double getPrice() {
-        return 7.00 + ticket.getPrice();
+        double price = ticket.getPrice();
+        double newprice = price*2;
+        return newprice;
     }
 }

@@ -6,10 +6,10 @@ public class AdultTicket extends TicketDecorator{
     }
 
     public String ticketDesc() {
-        return ", Adult";
+        return ticket.ticketDesc() + ", Adult";
     }
 
     public Double getPrice() {
-        return 7.00;
+        return ticket.getPrice() + 10.00;
     }
 }
