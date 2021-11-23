@@ -1,12 +1,12 @@
 public class SkyLevel extends Level {
 
-    private EnvironmentBehaviour w= new Cloud();
+    private EnvironmentBehaviour envB= new Cloud();
 
     public SkyLevel(){
 
     }
     public void startEnvironment(){
-        w.initEnvironment();
+        envB.initEnvironment();
     }
 
     public void initLevel(){

@@ -2,8 +2,8 @@ public abstract class Level {
 
     private EnvironmentBehaviour environmentBehaviour;
 
-
-    public Level(){}
+    public Level(){
+    }
 
     public void startEnvironment(){
         environmentBehaviour.initEnvironment();

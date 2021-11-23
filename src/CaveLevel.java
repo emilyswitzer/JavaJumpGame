@@ -1,12 +1,11 @@
 public class CaveLevel extends Level {
 
-    private EnvironmentBehaviour w = new Dark();
+    private EnvironmentBehaviour envB = new Dark();
 
     public CaveLevel(){
 
     }
-    public void startEnvironment(){
-        w.initEnvironment();
+    public void startEnvironment(){ envB.initEnvironment();
     }
 
     public void initLevel(){

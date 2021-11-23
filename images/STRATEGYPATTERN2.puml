@@ -17,8 +17,24 @@ abstract class Level {
 
 }
 
+interface Rain {
+  +rain()
+}
+
+interface Dark {
+ +dark()
+}
+
+interface Sunny {
+ +sunny()
+}
+
+interface Cloudy {
+ +cloudy()
+}
+
 class MountainLevel {
-+initLevel() //Displays a cave level
++initLevel()
 
 }
 
@@ -33,9 +49,16 @@ class ForestLevel{
 }
 
 
-Level <|-- SkyLevel
-Level <|-- ForestLevel
-Level <|-- MountainLevel
+Level <|--- SkyLevel
+Level <|--- ForestLevel
+Level <|--- MountainLevel
+
+Cloudy <|-.- SkyLevel
+Sunny <|-.- SkyLevel
+Dark <|-.- ForestLevel
+Cloudy <|-.- MountainLevel
+Rain <|-.- ForestLevel
+Sunny <|-.- MountainLevel
 
 
 
