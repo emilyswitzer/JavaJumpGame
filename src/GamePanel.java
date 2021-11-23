@@ -17,7 +17,7 @@ public class GamePanel extends JPanel {
     public static final int GROUND = 250;
     public static final int SMALL_SPACE = 150;
     public static final int MAX_SPACE = 300;
-    private ObstacleList obstacles; //an arraylist of obstacles
+    private NPCList obstacles; //an arraylist of obstacles
     private Timer obstacleTimer, jumpTimer; //String Timers
     private static int randomGap = (int) (Math.random() * (MAX_SPACE - SMALL_SPACE)) + SMALL_SPACE;
     private boolean jumping;
@@ -77,7 +77,7 @@ public class GamePanel extends JPanel {
 
         player.setLocation(50, GROUND - 80 - jumpHeight);
         isGameOver = false;
-        obstacles = new ObstacleList();
+        obstacles = new NPCList();
         obstacles.add(new BoxEnemy(780, GROUND - 20));
         obstacleTimer = new Timer(5, new ObstacleTimerActionListener());
         obstacleTimer.start();

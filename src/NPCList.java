@@ -3,13 +3,13 @@ import java.util.Iterator;
 
 
 
-public class ObstacleList implements Iterable {
+public class NPCList{
 
 
     private ArrayList<BoxEnemy> obstacles;
 
 
-    public ObstacleList() {
+    public NPCList() {
 
         obstacles = new ArrayList<BoxEnemy>();
     }
