@@ -6,16 +6,16 @@ import java.util.Iterator;
 public class ObstacleList implements Iterable {
 
 
-    private ArrayList<Obstacle> obstacles;
+    private ArrayList<BoxEnemy> obstacles;
 
 
     public ObstacleList() {
 
-        obstacles = new ArrayList<Obstacle>();
+        obstacles = new ArrayList<BoxEnemy>();
     }
 
 
-    public void add(Obstacle o) {
+    public void add(BoxEnemy o) {
 
         obstacles.add(o);
     }
@@ -38,12 +38,12 @@ public class ObstacleList implements Iterable {
         return obstacles.size();
     }
 
-    public Iterator<Obstacle> iterator() {
+    public Iterator<BoxEnemy> iterator() {
 
         return obstacles.iterator();
     }
 
-    public Obstacle getObstacle(int i) {
+    public BoxEnemy getObstacle(int i) {
         return obstacles.get(i);
     }
 }

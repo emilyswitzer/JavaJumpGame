@@ -2,27 +2,31 @@
 skinparam classAttributeIconSize 0
 abstract class Ticket{
 -ticketCode: int
--price: Double
 
-+Ticket(ticketCode: int)
-+getPrice() :Double
++Ticket()
++getTicketCode() : int
++{abstract}getPrice() :Double
 +{abstract} ticketDesc():String
 
 }
 class TrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class BusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class PlaneTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 abstract class TicketDecorator{
 +{abstract} ticketDesc():String
++{abstract} getPrice():Double
 }
 
 class Customer{
@@ -36,11 +40,13 @@ class Booking{
 -transactionID:String
 -customer:Customer
 -totalPrice:Double
-+Booking()
+-ticket:Ticket
++Booking(transID: String; cust:Customer;
+ price:Double; ticket:Ticket)
 }
 
-Booking -- Ticket : has a
-Booking -- Customer : creates a
+Booking --> Ticket : has a
+Booking --> Customer : purchased by a
 
 Ticket <|-- BusTicket
 Ticket <|-- TrainTicket

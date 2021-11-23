@@ -1,7 +1,12 @@
 @startuml
 skinparam classAttributeIconSize 0
 
+interface CharacterBehaviourStrategy<<interface >>{
 
+    +void setLocation(int: x; int: y)
+    +void draw(g: Graphics2D)
+
+}
 
 
 class Character {
@@ -55,6 +60,10 @@ Enemy <|-- HoleEnemy
 Enemy <|-- SpikeEnemy
 Enemy <|-- PyramidEnemy
 Character<|-- Player
+
+CharacterBehaviourStrategy <- Character
+CharacterBehaviourStrategy <|-. LocationBehaviour
+CharacterBehaviourStrategy <|-. DrawBehaviour
 
 
 

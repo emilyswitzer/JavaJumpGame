@@ -1,13 +1,13 @@
 import java.awt.*;
 
 
-public class Obstacle extends Square implements Shape  {
+public class BoxEnemy extends Enemy implements Drawable {
 
     private int R;
     private int G;
     private int B;
 
-    public Obstacle(int x, int y) {
+    public BoxEnemy(int x, int y) {
 
         super(20);
         setLocation(x, y);

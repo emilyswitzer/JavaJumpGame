@@ -2,10 +2,10 @@
 skinparam classAttributeIconSize 0
 abstract class Ticket{
 -ticketCode: int
--price: Double
 
-+Ticket(ticketCode: int)
-+getPrice() :Double
++Ticket()
++getTicketCode() : int
++{abstract}getPrice() :Double
 +{abstract} ticketDesc():String
 
 }
@@ -15,79 +15,98 @@ class StudentBusTicket{
 }
 
 class AdultBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class OAPBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class KidBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class StudentTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class AdultTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class OAPTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class KidTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class StudentPlaneTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class AdultPlaneTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class OAPPlaneTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class KidPlaneTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyStudentBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyAdultBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyOAPBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyKidBusTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyStudentTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyAdultTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyOAPTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 class MonthlyKidTrainTicket{
-+{abstract} ticketDesc():String
++getPrice() :Double
++ticketDesc():String
 }
 
 
@@ -102,11 +121,13 @@ class Booking{
 -transactionID:String
 -customer:Customer
 -totalPrice:Double
-+Booking()
+-ticket:Ticket
++Booking(transID: String; cust:Customer;
+ price:Double; ticket:Ticket)
 }
 
-Booking -- Ticket : has a
-Booking -- Customer : creates a
+Booking --> Ticket : has a
+Booking --> Customer : purchased by a
 
 OAPBusTicket --|> Ticket
 Ticket <|--- OAPPlaneTicket

@@ -1,15 +1,14 @@
 import java.awt.*;
 
-public class Square implements Shape {
+public class Enemy implements Drawable {
 
     public int side;
     private boolean moving;
     private int x;
     private int y;
 
-    public Square(int side) {
+    public Enemy(int side) {
 
-        super();
         this.side=side;
 
     }

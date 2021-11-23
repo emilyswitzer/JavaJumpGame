@@ -1,0 +1,76 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+interface EnvironmentBehaviour <<interface>>{
+     +void initEnvironment()
+}
+
+class Rain{
+  +void initEnvironment()
+}
+
+
+class Snow{
+  +void initEnvironment()
+}
+
+class Dark{
+  +void initEnvironment()
+}
+
+class Hail{
+  +void initEnvironment()
+}
+
+class Cloud{
+  +void initEnvironment()
+}
+
+EnvironmentBehaviour <|.. Rain
+Dark ..|> EnvironmentBehaviour
+Snow ..|> EnvironmentBehaviour
+EnvironmentBehaviour <|.. Cloud
+EnvironmentBehaviour <|.. Hail
+
+Level o->	 EnvironmentBehaviour : has a
+
+
+abstract class Level {
+    #EnvironmentBehaviour: environmentBehaviour
+
+    +{abstract} void startEnvironment()
+    +{abstract} void initLevel()
+
+
+}
+
+class MountainLevel {
+-environmentBehaviour: EnvironmentBehaviour
+
+}
+
+class CaveLevel {
+   -environmentBehaviour: EnvironmentBehaviour
+}
+
+class SkyLevel {
+   -environmentBehaviour: EnvironmentBehaviour
+
+}
+
+class ForestLevel{
+-environmentBehaviour: EnvironmentBehaviour
+}
+
+Level <|-- CaveLevel
+Level<|-- MountainLevel
+SkyLevel --|> Level
+ForestLevel --|> Level
+
+
+
+
+
+
+@enduml

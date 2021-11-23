@@ -1,5 +1,3 @@
-import org.w3c.dom.css.RGBColor;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +26,7 @@ public class GamePanel extends JPanel {
     private JLabel highScoreLabel;
     private int score;
     private int highScore;
-    private Rectangle player = new Player();
+    private Character player = new Player();
     private boolean isGameOver;
 
 
@@ -80,7 +78,7 @@ public class GamePanel extends JPanel {
         player.setLocation(50, GROUND - 80 - jumpHeight);
         isGameOver = false;
         obstacles = new ObstacleList();
-        obstacles.add(new Obstacle(780, GROUND - 20));
+        obstacles.add(new BoxEnemy(780, GROUND - 20));
         obstacleTimer = new Timer(5, new ObstacleTimerActionListener());
         obstacleTimer.start();
 
@@ -92,7 +90,7 @@ public class GamePanel extends JPanel {
         ImageIcon img = new ImageIcon("images/backgroundimage.jpg");
         img.paintIcon(this, g, 0, 0);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(player.addColour());
+        g2.setColor(Color.blue);
         g2.drawRect(47, GROUND - 38 - jumpHeight, 42, 42);
         g2.fillRect(47, GROUND - 38 - jumpHeight, 42, 42);
         g2.setColor(new Color(225, 157, 252));
@@ -105,7 +103,7 @@ public class GamePanel extends JPanel {
 
         Iterator i = obstacles.iterator();
         while (i.hasNext()) {
-            ((Obstacle) i.next()).draw(g2);
+            ((BoxEnemy) i.next()).draw(g2);
 
 
         }
@@ -122,7 +120,7 @@ public class GamePanel extends JPanel {
 
 
             for (int i = 0; i < obstacles.size(); i++) {
-                Obstacle o = (obstacles.getObstacle(i));
+                BoxEnemy o = (obstacles.getObstacle(i));
                 o.setLocation(o.getX() - 1, o.getY());
 
                 if (o.getX() == -20) {
@@ -130,9 +128,9 @@ public class GamePanel extends JPanel {
                 }
 
             }
-            Obstacle o2 = (obstacles.getObstacle(obstacles.size() - 1));
+            BoxEnemy o2 = (obstacles.getObstacle(obstacles.size() - 1));
             if (800 - o2.getX() == randomGap) {
-                obstacles.add(new Obstacle(780, GROUND - 20));
+                obstacles.add(new BoxEnemy(780, GROUND - 20));
                 randomGap = (int) (Math.random() * (MAX_SPACE - SMALL_SPACE)) + SMALL_SPACE;
 
                 score++;
@@ -144,7 +142,7 @@ public class GamePanel extends JPanel {
             for (int i = 0; i < 20; i++) {
 
 
-                if (player.contains((obstacles.getObstacle(0)).getX() + i, (obstacles.getObstacle(0)).getY())) {
+                if (player.doesContain((obstacles.getObstacle(0)).getX() + i, (obstacles.getObstacle(0)).getY())) {
 
 
                     isGameOver = true;
@@ -201,7 +199,7 @@ public class GamePanel extends JPanel {
 
         public void actionPerformed(ActionEvent e) {
 
-            if (jumpHeight == player.addAccessory()) {
+            if (jumpHeight == 50) {
                 jumping = true;
             }
 
