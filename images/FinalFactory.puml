@@ -1,69 +1,74 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-interface CharacterBehaviourStrategy<<interface >>{
-
-    +void setLocation(int: x; int: y)
-    +void draw(g: Graphics2D)
+interface Obstacle {
+    +toString(): String
 
 }
 
-
-class Character {
-    -WIDTH: int
-    -HEIGHT: int
-    -xCoordinate: int
-    -yCoordinate: int
-    -isMoving: boolean
-
-    +int getX()
-    +int getY()
-    +boolean doesContain()
-    +void setLocation(int: x; int: y)
-    +void draw(g: Graphics2D)
-
-}
-class BoxEnemy {
-
-    +void draw(g: Graphics2D)
+class FlyingObstacle{
+-OBSTACLE: FlyingObstacleType
 }
 
-class PyramidEnemy {
-
-    +void draw(g: Graphics2D)
+class GroundObstacle{
+  -GROUNDOBS: GroundObstacleType
 }
 
-class SpikeEnemy {
+Enum FlyingObstacleType <<enumeration>> {
+     BIRD
+     CLOUD
+     BULLET
 
-    +void draw(g: Graphics2D)
+    +{static} getRandom(): FlyingObstacleType
 }
 
-class HoleEnemy {
+Enum GroundObstacleType <<enumeration>> {
+     SPIKE
+     FENCE
+     HOLE
+     BOX
 
-    +void draw(g: Graphics2D)
+    +{static} getRandom(): GroundObstacleType
 }
 
-class Player {
-+void draw(g: Graphics2D)
+interface ObstacleFactory {
+
+    +generateObstacle(o: FlyingObstacleType): Obstacle
+
+    +generateRandomObstacle(): Obstacle
 }
 
-class Enemy {
-   -side:int
+class NPCFactory {
 
-   +void draw(g: Graphics2D)
-}
+    -obstacle: Map<FlyingObstacleType, FlyingObstacle>
+
+  }
+
+  class NPCRandomFactory {
 
 
-Character <|-- Enemy
-Enemy <|-- BoxEnemy
-Enemy <|-- HoleEnemy
-Enemy <|-- SpikeEnemy
-Enemy <|-- PyramidEnemy
-Character<|-- Player
+  -randomObstacles: Map<GroundObstacleType, GroundObstacle>
 
-CharacterBehaviourStrategy <- Character
-CharacterBehaviourStrategy <|-. LocationBehaviour
-CharacterBehaviourStrategy <|-. DrawBehaviour
+    }
+
+
+
+
+
+Obstacle <|-.- FlyingObstacle
+
+Obstacle <|-.- GroundObstacle
+
+ObstacleFactory <|-.- NPCFactory
+
+ObstacleFactory <|-.- NPCRandomFactory
+
+FlyingObstacle <-.- NPCFactory
+
+GroundObstacle <-.- NPCRandomFactory
+
+
+
 
 
 

@@ -1,21 +1,21 @@
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.EnumMap;
+import java.util.Map;
 
+public class NPCFactory implements ObstacleFactory {
 
+    private Map<FlyingObstacleType, FlyingObstacle> obstacle;
 
-public class NPCFactory{
+    public Obstacle generateObstacle(FlyingObstacleType o) {
+        obstacle = new EnumMap<>(FlyingObstacleType.class);
+        for (FlyingObstacleType type : FlyingObstacleType.values()) {
+            obstacle.put(type, new FlyingObstacle(type));
 
-
-    public NPCFactory() {
+        }
+        return obstacle.get(o);
     }
-    public void startFactory(){
-     for (int i = 0; i < 10; i++) {
-         SpikeObstacle s= new SpikeObstacle();
-         s.spawnObstacle();
-
-     }
-
+    public Obstacle generateRandomObstacle() {
+        return null;
     }
+
 
 }
-
