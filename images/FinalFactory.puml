@@ -52,7 +52,8 @@ class NPCFactory {
     }
 
 
-
+FlyingObstacle --> FlyingObstacleType
+GroundObstacle --> GroundObstacleType
 
 
 Obstacle <|-.- FlyingObstacle
@@ -68,7 +69,9 @@ FlyingObstacle <-.- NPCFactory
 GroundObstacle <-.- NPCRandomFactory
 
 
-
+class BoxGame {
++main(args: String[])
+}
 
 
 
