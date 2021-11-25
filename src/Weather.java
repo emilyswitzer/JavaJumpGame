@@ -11,12 +11,12 @@ public class Weather implements iObservable{
         current = WeatherType.SUNNY;
     }
 
-    public void addWeatherObserver(WeatherWatcher obs) {
-        observers.add(obs);
+    public void addWeatherObserver(WeatherWatcher ww) {
+        observers.add(ww);
     }
 
-    public void removeObserver(WeatherWatcher obs) {
-        observers.remove(obs);
+    public void removeObserver(WeatherWatcher ww) {
+        observers.remove(ww);
     }
 
     public void changeWeather() {
@@ -27,8 +27,8 @@ public class Weather implements iObservable{
     }
 
     public void updateObserver() {
-        for (var obs : observers) {
-            obs.update(current);
+        for (WeatherWatcher ww : observers) {
+            ww.update(current);
         }
     }
 }
