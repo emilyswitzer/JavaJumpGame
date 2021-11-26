@@ -1,0 +1,61 @@
+@startuml
+skinparam classAttributeIconSize 0
+abstract class Ticket{
+-ticketCode: int
+
++Ticket()
++getTicketCode() : int
++{abstract}getPrice() :Double
++{abstract} ticketDesc():String
+
+}
+
+class TrainTicket{
++getPrice() :Double
++ticketDesc():String
+}
+
+class BusTicket{
++getPrice() :Double
++ticketDesc():String
+}
+
+enum WeatherType{
+SUNNY
+RAINY
+    WINDY
+    COLD
+    MILD
+    SNOW
+    STORM
+}
+
+class Customer{
+-name:String
+-email:String
+-mobileNum:String
++Customer(name: String)
+}
+
+class Booking{
+-transactionID:String
+-customer:Customer
+-totalPrice:Double
+-ticket:Ticket
++Booking(transID: String; cust:Customer;
+ price:Double; ticket:Ticket)
+}
+
+Booking --> Ticket : has a
+Booking --> Customer : purchased by a
+
+Ticket <|-.- BusTicket
+Ticket <|-.- TrainTicket
+
+
+
+
+
+
+
+@enduml

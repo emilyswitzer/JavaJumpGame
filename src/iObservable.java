@@ -1,6 +1,6 @@
 public interface iObservable {
 
-    void addWeatherObserver(WeatherWatcher obs);
+    void addObserver(WeatherWatcher obs);
 
     void removeObserver(WeatherWatcher obs);
 

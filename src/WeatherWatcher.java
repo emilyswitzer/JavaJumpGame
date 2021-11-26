@@ -1,5 +1,5 @@
 public interface WeatherWatcher {
 
-    void update(WeatherType weather);
+    void getUpdate(WeatherType weather);
 
 }

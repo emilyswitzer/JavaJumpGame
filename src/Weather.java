@@ -11,7 +11,7 @@ public class Weather implements iObservable{
         current = WeatherType.SUNNY;
     }
 
-    public void addWeatherObserver(WeatherWatcher ww) {
+    public void addObserver(WeatherWatcher ww) {
         observers.add(ww);
     }
 
@@ -28,7 +28,7 @@ public class Weather implements iObservable{
 
     public void updateObserver() {
         for (WeatherWatcher ww : observers) {
-            ww.update(current);
+            ww.getUpdate(current);
         }
     }
 }
