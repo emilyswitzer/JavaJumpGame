@@ -7,12 +7,7 @@ skinparam classAttributeIconSize 0
 abstract class Level {
 
     +{abstract} void initLevel()
-    +void initRain()
-    +void initSun()
-    +void initSnow()
-    +void initDark()
-    +void initBright()
-    +void initCloud()
+    +otherMethods()
 
 
 }
@@ -20,6 +15,12 @@ abstract class Level {
 interface Rain {
   +rain()
 }
+
+interface UnderWater {
+  +underwater()
+}
+
+
 
 interface Dark {
  +dark()
@@ -48,14 +49,30 @@ class ForestLevel{
 +initLevel()
 }
 
+class CaveLevel{
++initLevel()
+}
 
+class UnderwaterLevel{
++initLevel()
+}
+
+note "SkyLevel and MountainLevel implement the same methods" as N2
+MountainLevel . N2
+N2 . SkyLevel
+
+Level <|--- UnderwaterLevel
+Level <|--- CaveLevel
 Level <|--- SkyLevel
 Level <|--- ForestLevel
 Level <|--- MountainLevel
 
 Cloudy <|-.- SkyLevel
 Sunny <|-.- SkyLevel
+Sunny <|-.- UnderwaterLevel
+UnderWater <|-.- UnderwaterLevel
 Dark <|-.- ForestLevel
+Dark <|-.- CaveLevel
 Cloudy <|-.- MountainLevel
 Rain <|-.- ForestLevel
 Sunny <|-.- MountainLevel

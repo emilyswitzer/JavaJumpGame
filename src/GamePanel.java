@@ -172,7 +172,7 @@ public class GamePanel extends JPanel {
                     }
                 }
 
-                int confirm = JOptionPane.showConfirmDialog(null, scoreLabel.getText() + "\n" + "Play again?", "Game Over", JOptionPane.YES_NO_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(null, scoreLabel.getText() + "\n" + "Play again?", "Strategy.Game Over", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION)
                     start();
                 else

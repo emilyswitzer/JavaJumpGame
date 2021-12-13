@@ -1,21 +1,44 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-interface Obstacle {
-    +toString(): String
+abstract Obstacle {
+    +{abstract} desc(): String
 
 }
 
-class FlyingObstacle{}
+class FlyingObstacle{
+-flyObs: FlyingObstacleType;
+}
 
 class GroundObstacle{
-  -final groundObs: GroundObstacleType;
+  -groundObs: GroundObstacleType;
+}
+
+enum FlyingObstacleType {
+    BIRD
+    CLOUD
+    BULLET
+
+
+}
+
+enum GroundObstacleType {
+    SPIKE
+    FENCE
+    HOLE
+    BOX
+
+
 }
 
 
 Obstacle <|-- FlyingObstacle
 
 Obstacle <|-- GroundObstacle
+
+FlyingObstacle <-- FlyingObstacleType
+
+GroundObstacle <-- GroundObstacleType
 
 
 

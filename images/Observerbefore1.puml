@@ -1,0 +1,47 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+
+note top of WeatherApp
+The method gets
+called when weather changes
+public void weatherChanged(){}
+end note
+
+
+note "This note is connected\nto several objects." as N2
+WeatherApp .. N2
+
+class WeatherBureau{
+
++reportWeather():void
+
+}
+
+class WeatherApp{
++weatherChanged():void
+
+}
+
+
+
+class Snowboarder{
++update():void
+
+
+}
+
+class Farmer{
++update():void
+
+}
+
+Snow-> WeatherBureau
+Sun--> WeatherBureau
+WeatherBureau -> WeatherApp
+WeatherApp<--Snowboarder
+WeatherApp <- Farmer
+
+
+@enduml

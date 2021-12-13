@@ -61,7 +61,7 @@ TicketDecorator <|--- ReturnTicket
 TicketDecorator <|-- WeeklyTicket
 TicketDecorator <|--- MonthlyTicket
 TicketDecorator <|-- YearlyTicket
-
+TicketDecorator --> Ticket
 
 
 

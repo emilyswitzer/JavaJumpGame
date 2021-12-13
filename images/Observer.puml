@@ -1,28 +1,18 @@
 @startuml
+
 skinparam classAttributeIconSize 0
-abstract class Ticket{
--ticketCode: int
 
-+Ticket()
-+getTicketCode() : int
-+{abstract}getPrice() :Double
-+{abstract} ticketDesc():String
 
-}
+note top of WeatherWatcher
+The method gets
+called when weather changes
+public void weatherChanged(){}
+end note
 
-class TrainTicket{
-+getPrice() :Double
-+ticketDesc():String
-}
 
-class BusTicket{
-+getPrice() :Double
-+ticketDesc():String
-}
-
-enum WeatherType{
+enum WeatherType {
 SUNNY
-RAINY
+    RAINY
     WINDY
     COLD
     MILD
@@ -30,32 +20,46 @@ RAINY
     STORM
 }
 
-class Customer{
--name:String
--email:String
--mobileNum:String
-+Customer(name: String)
+interface WeatherWatcher {
+ +getUpdate(weather: WeatherType): void
 }
 
-class Booking{
--transactionID:String
--customer:Customer
--totalPrice:Double
--ticket:Ticket
-+Booking(transID: String; cust:Customer;
- price:Double; ticket:Ticket)
+
+class WeatherApp{
+-current: WeatherType
+-observers: List<WeatherWatcher>
+
++changeWeather():void
+
 }
 
-Booking --> Ticket : has a
-Booking --> Customer : purchased by a
-
-Ticket <|-.- BusTicket
-Ticket <|-.- TrainTicket
 
 
+interface iObservable {
++addObserver(obs: WeatherWatcher):void
++removeObserver(obs: WeatherWatcher):void
++updateObserver():void
+}
 
 
+class Gardener{
 
+}
+
+class Surfer{
+
+}
+
+class Farmer{
+
+}
+
+WeatherType -> WeatherApp
+iObservable-> WeatherWatcher
+WeatherApp-.-> iObservable
+WeatherWatcher <|-.- Surfer
+WeatherWatcher<|-.-Gardener
+WeatherWatcher<|-.- Farmer
 
 
 @enduml

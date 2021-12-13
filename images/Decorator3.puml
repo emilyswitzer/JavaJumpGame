@@ -1,5 +1,12 @@
 @startuml
 skinparam classAttributeIconSize 0
+
+
+note top of Ticket
+The method gets
+called when weather changes
+public void weatherChanged(){}
+end note
 abstract class Ticket{
 -ticketCode: int
 

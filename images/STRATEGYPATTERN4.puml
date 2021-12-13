@@ -1,0 +1,86 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+class Game {
++main(args: String[])
+}
+
+abstract class Level {
+
+    +{abstract} void initLevel()
+    +void initRain()
+    +void initSun()
+    +void initSnow()
+    +void initBright()
+    +void initCloud()
+
+
+}
+
+class MountainLevel {
++initLevel()
+
+}
+
+
+class SkyLevel {
+ +initLevel()
+
+}
+
+class ForestLevel {
+
++initLevel()
+}
+
+class UnderwaterLevel {
+
++initLevel()
++void() initRain()
++void() initCloud()
++void() initSnow()
++void() initWater()
+}
+
+class CaveLevel {
+
++initLevel()
++void() initRain()
++void() initCloud()
++void() initSnow()
++void() initSun()
++void() initDark()
+}
+note as N1
+ Several methods had to be overwritten because
+ a lot of environments can not occur underwater.
+ Implementation changed it to not rain or snow
+ or be cloudy.
+
+end note
+
+
+note top of CaveLevel
+  Now overwriting methods
+  in two Level Subclasses
+end note
+
+
+
+
+Level <|-- SkyLevel
+Level <|-- ForestLevel
+Level <|-- MountainLevel
+Level <|-- UnderwaterLevel
+Level <|-- CaveLevel
+Game .-> Level
+
+
+
+
+
+
+
+
+@enduml

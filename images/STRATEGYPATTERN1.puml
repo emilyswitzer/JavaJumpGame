@@ -2,7 +2,9 @@
 skinparam classAttributeIconSize 0
 
 
-
+class Game {
++main(args: String[])
+}
 
 abstract class Level {
 
@@ -10,7 +12,6 @@ abstract class Level {
     +void initRain()
     +void initSun()
     +void initSnow()
-    +void initDark()
     +void initBright()
     +void initCloud()
 
@@ -18,7 +19,7 @@ abstract class Level {
 }
 
 class MountainLevel {
-+initLevel() //Displays a cave level
++initLevel()
 
 }
 
@@ -36,6 +37,7 @@ class ForestLevel{
 Level <|-- SkyLevel
 Level <|-- ForestLevel
 Level <|-- MountainLevel
+Game .-> Level
 
 
 

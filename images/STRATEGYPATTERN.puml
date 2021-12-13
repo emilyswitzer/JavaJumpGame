@@ -47,11 +47,15 @@ abstract class Level {
 
 class MountainLevel {
 -environmentBehaviour: EnvironmentBehaviour
+ +void startEnvironment()
+    +void initLevel()
 
 }
 
 class CaveLevel {
    -environmentBehaviour: EnvironmentBehaviour
+   +void startEnvironment()
+       +void initLevel()
 }
 
 class SkyLevel {

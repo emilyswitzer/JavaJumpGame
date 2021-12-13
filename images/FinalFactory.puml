@@ -33,18 +33,11 @@ Enum GroundObstacleType <<enumeration>> {
 
 interface ObstacleFactory {
 
-    +generateObstacle(o: FlyingObstacleType): Obstacle
-
     +generateRandomObstacle(): Obstacle
 }
 
-class NPCFactory {
 
-    -obstacle: Map<FlyingObstacleType, FlyingObstacle>
-
-  }
-
-  class NPCRandomFactory {
+  class RandomGroundFactory {
 
 
   -randomObstacles: Map<GroundObstacleType, GroundObstacle>
@@ -60,18 +53,14 @@ Obstacle <|-.- FlyingObstacle
 
 Obstacle <|-.- GroundObstacle
 
-ObstacleFactory <|-.- NPCFactory
 
-ObstacleFactory <|-.- NPCRandomFactory
-
-FlyingObstacle <-.- NPCFactory
-
-GroundObstacle <-.- NPCRandomFactory
+ObstacleFactory <|-.- RandomGroundFactory
 
 
-class BoxGame {
-+main(args: String[])
-}
+
+GroundObstacle <-.- RandomGroundFactory
+
+
 
 
 
